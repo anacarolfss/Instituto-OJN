@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção</title>
+</head>
+
+<body>
+    <section id="adocao-responsavel" class="container-adocao">
+        <section class="info-adocao">
+            <br><br><br>
+            <h1 class="titulo">Você está pronto para adotar?</h1>
+            <p>Adotar um animal é um ato de amor, mas também uma grande responsabilidade. Antes de tomar essa
+                decisão, é importante refletir sobre o tempo, os cuidados e os recursos necessários para garantir
+                uma vida saudável e feliz para o animal.</p>
+            <p>Pensando nisso, esta etapa foi criada para te ajudar a entender se você está preparado para esse
+                compromisso. </p>
+            <p>A partir de algumas perguntas simples, será possível avaliar se, neste momento, você está apto a
+                adotar ou se ainda é necessário se preparar melhor.</p>
+            <p>O objetivo não é impedir, mas conscientizar. Afinal, todo animal merece ser acolhido com
+                responsabilidade, carinho e respeito.</p>
+        </section>
+
+    </section>
+    <section class="formulario-adocao">
+        <!-- <div class="img-formulario">
+                    <img src="./img/img-jake.jpg" alt="img-jake" class="img-sessao-formulario">
+                </div> -->
+        <div class="sessao-formulario">
+            <form class="formulario">
+                <div class="form-header">
+                    <div>
+                        <div class="titulo-form">
+                            <h1>Adoção Responsável</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-caixas">
+                    <div class="requesitos-basicos-form">
+                        <h1>Requisitos Básicos</h1>
+                        <div class="input-caixa">
+                            <label for="idade">Você tem 18 anos ou mais?</label>
+                            <select id="idade">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+                            <label>Todas as pessoas da sua casa concordam com a adoção?</label>
+                            <select id="concordar">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+                            <label>O local onde você mora permite animais?</label>
+                            <select id="local">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--INICIO ESTRUTURA E CUIDADOS-->
+                    <h1>Estrutura e cuidado:</h1>
+                    <div class="estrutura-form">
+                        <div class="input-caixa">
+                            <label for="qtd-animais-adocao">Quantos animais você possui atualmente?</label>
+                            <select id="qtd_animais">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="Nenhum">Nenhum</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="mais">5 ou mais</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+                            <label>Se você possui animais, eles são castrados e vacinados?</label>
+                            <select id="castracao_vacina">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="nenhum">Não possuo animais</option>
+                                <option value="castrado">Apenas castrados</option>
+                                <option value="vacinado">Apenas vacinados</option>
+                                <option value="ambos">Castrados e vacinados</option>
+                                <option value="nenhum-cuidado">Não são cuidados</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+                            <label for="horas-animais">Por quantas horas o animal ficaria sozinho por
+                                dia</label>
+                            <select id="horas">
+                                <option value="" disabled selected>Selecione uma opção</option>
+                                <option value="perfeito"> Menos de 4h</option>
+                                <option value="otimo">Até 4h</option>
+                                <option value="bom">Entre 5 e 9h</option>
+                                <option value="pessimo">Mais de 9h</option>
+                            </select>
+                        </div>
+
+                    </div> <!--FIM ESTRUTURA E CUIDADOS-->
+
+                    <!-- inicio responsabilidade/comportamento -->
+                    <h1>Responsabilidade e comportamento</h1>
+                    <div class="responsabilidade-comportamento-form">
+                        <div class="input-caixa">
+
+                            <label>Você está preparado(a) para o período de adaptação do animal?</label>
+                            <select id="adaptacao">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Sim, estou disposto(a) a dedicar tempo e paciência</option>
+                                <option value="medio">Sim, mas espero que ele se
+                                    adapte rapidamente</option>
+                                <option value="nao">Não tenho muito tempo para
+                                    esse processo</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+                            <label>Como você reagiria se o animal destruísse algum objeto da sua casa?</label>
+                            <select id="destruicao">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Entendo que faz parte e buscaria soluções</option>
+                                <option value="medio">Ficaria bravo(a), mas tentaria controlar a situação</option>
+                                <option value="ruim"> Isolaria ou prenderia o animal para evitar problemas</option>
+                                <option value="nao">Não toleraria esse comportamento</option>
+                            </select>
+                        </div>
+
+                        <div class="input-caixa">
+
+                            <label>Se o animal demorasse a aprender onde fazer as
+                                necessidades, como você reagiria?</label>
+                            <select id="necessidades">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sim">Teria paciência e  ensinaria com calma</option>
+                                <option value="medio">Ficaria frustrado(a), mas continuaria tentando</option>
+                                <option value="ruim">Repreenderia o animal</option>
+                                <option value="nao">Consideraria desistir da adoção</option>
+                            </select>
+
+                        </div>
+
+                        <div class="condicao-financeira-form">
+                            <label for="condicao-financeira">Quanto você pode investir mensalmente no animal?(em R$)</label>
+                            <input type="number" id="input_valor_investimento" placeholder="Ex: 300">
+                        </div>
+                    </div> <!-- fim responsabilidade/comportamento -->
+                </div>
+                <div class="btn-form">
+                    <button type="button" onclick="VerificarDados()">Verificar</button>
+                </div>
+
+                <div class="div_mensagem"></div>
+            </form>
+
+
+        </div>
+    </section>
+</body>
+ <script src="./js/adocao.js"></script>
+</html>
