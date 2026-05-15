@@ -1,0 +1,25 @@
+require("dotenv").config();
+
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const PORTA = 3000;
+const pesquisaRouter = require("./src/routes/pesquisa");
+
+const app = express();
+
+const usuarioRouter = require("./src/routes/usuarios");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(cors());
+
+app.use("/usuarios", usuarioRouter);
+app.use("/pesquisas", pesquisaRouter);
+
+app.listen(PORTA, () => {
+  console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA}`);
+});
+

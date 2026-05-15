@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">  
+    <title>Inicio</title>
+</head>
+
+<body>
+    <main class="container-principal">
+        <header class="header"> <!-- INICIO HEADER -->
+            <nav class="nav-bar">
+                <!-- logo -->
+                <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png"alt="logo-instituto-ojn"> </a></div>
+                <div class="nav-lista">
+                    <ul>
+                        <li class="nav-item"> <a href="#" class="nav-link">Inicio</a> </li>
+                        <li class="nav-item"> <a href="#sobre-instituto" class="nav-link">Sobre</a> </li>
+                        <li class="nav-item"> <a href="#pesquisa-dashboard" class="nav-link">Pesquisa</a> </li>
+                        <li class="nav-item"> <a href="adocao-responsavel.html" class="nav-link">Adoção</a> </li>
+                    </ul>
+                </div>
+                <!-- botao -->
+                <div class="btn"><button class="btn-quero-ajudar btn-cadastro" onclick="irParaAjuda()"> <a href="queroajudar.html"> Quero Ajudar</a> </button>
+                </div>
+            </nav>
+
+
+        </header> <!-- FIM HEADER -->
+
+        <section id="bem-vindo" class="conteudo-principal">
+            <section class="coluna1">
+                <h1 class="titulo">Seja bem-vindo!</h1>
+                <p>O <strong>Instituto OJN</strong> é um projeto idealizado por mim desde a infância, motivado pela
+                    sensação de que nasci
+                    para ajudar animais em situação de rua. Muitos deles são, infelizmente, abandonados e maltratados
+                    diariamente, vivendo sem alimento, proteção e amor.</p>
+                <p> Nesse contexto, a ONG busca oferecer cuidado, respeito, atenção e saúde, além de incentivar a adoção
+                    responsável.
+                    Nós, do Instituto, acreditamos que todos os animais devem ser tratados com <strong>dignidade,
+                        respeito</strong> e
+                    <strong>amor</strong> .
+                </p> <br>
+            <!-- <div class="btn"><button class="btn-quero-ajudar"> <a href="cadastro.html"> Quero Ajudar</a> </button> -->
+            </section>
+
+            <section class="coluna2">
+                <img class="img-cachorro" src="./img/imagem-olivia.jpg" alt="imagem-cachorro">
+            </section>
+        </section>
+        <br><br><br>
+
+        <section id="sobre-instituto" class="container-sobre">
+            <section class="img-caes-container">
+                <img class="img-caes" src="./img/fotos-caes.jpg" alt="fotos-caes">
+
+            </section>
+            <section class="coluna1">
+                <br><br><br><br>
+                <h1 class="titulo">Sobre o Instituto </h1>
+                <p>O <strong>Instituto OJN</strong> I nasce com o propósito de transformar a realidade dos animais em
+                    situação de rua e, principalmente, a relação deles com a população. Muitos são abandonados e
+                    esquecidos, enfrentando dificuldades significativas, como fome, frio, maus-tratos e a falta de
+                    cuidados básicos.</p>
+                <br>
+                <p>A proposta da nossa ONG é oferecer a esses animais uma nova chance, para que tenham uma vida digna e
+                    especial, com acolhimento, monitoramento semanal por diversos profissionais da saúde, cuidado
+                    personalizado, adestramento, visitas e momentos de lazer e brincadeira.</p>
+                <br>
+                <p>Além disso, promovemos a adoção consciente, incentivando o planejamento e o compromisso com os
+                    cuidados necessários, sejam eles físicos ou emocionais.</p>
+                <br>
+                <p>Mais do que resgatar, nosso instituto tem como principal objetivo transformar a forma como as pessoas
+                    enxergam os animais, promovendo empatia, respeito, responsabilidade e amor.</p>
+                <br>
+           <p class="p-delicado"><strong>Afinal, acreditamos que mudar a vida de um animal também é transformar o mundo ao nosso redor.</strong></p>
+            </section>
+        </section>
+        <div>
+
+            </div>
+            <section id="pesquisa-dashboard" class="container-pesquisa">
+    
+                <div class="texto-pesquisa"> 
+                    <h1 class="titulo-pesquisa">Um Problema Invisível: O Abandono Animal no Brasil</h1><br>
+                    <p>Nós, do <span style="font-weight: bold;">Instituto OJN</span> ,reconhecemos a importância de conscientizar a sociedade sobre o abandono de animais no Brasil, que ainda atinge milhões de animais em situação de vulnerabilidade.</p>
+                    <br>
+                    <p>Esta pesquisa tem como objetivo coletar informações sobre o nível de conscientização da população em relação ao abandono de animais, contribuindo para o desenvolvimento de ações mais eficazes.</p>
+                </div>
+                
+                <div class="caixa-perguntas">
+                    <div class="pergunta">
+                        <p class="subtitulo-pergunta">Você acha que o abandono de animais é um problema?</p><br>
+                         <div class="input-perguntas">
+                            <label><input type="radio" name="problema-pesquisa" value="Pequeno"> Pequeno</label>
+                        <br>
+                        <label><input type="radio" name="problema-pesquisa" value="Moderado"> Moderado</label>
+                        <br>
+                         <label><input type="radio" name="problema-pesquisa" value="Grave"> Grave</label>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn-coluna1 btn-pesquisa" onclick="EnviarPesquisa()"> Enviar Resposta</button>
+               <div class="kpis-dados">
+
+                        <div class="dados-pesquisa">
+                            <h2 id="totalRespostas">0</h2>
+                             <p>Respostas registradas</p>
+                            </div>
+
+                             <div class="dados-pesquisa">
+                                <h2 id="totalGrave">0</h2>
+                                <p>Grave</p>
+                            </div>
+
+                             <div class="dados-pesquisa">
+                                <h2 id="totalModerado">0</h2>
+                                <p>Moderado</p>
+                            </div>
+
+                            <div class="dados-pesquisa">
+                              <h2 id="totalPequeno">0</h2>
+                              <p>Pequeno</p>
+                            </div>
+
+                        </div>
+                    <div class="card-grafico">
+                        <h3>Percepção sobre abandono animal</h3>
+                        <canvas id="graficoProblema"></canvas>
+                    </div>         
+            </section>  
+        </main>
+        <footer>
+            <p>Instituto OJN © 2026</p>
+            <!-- <p>Projeto acadêmico desenvolvido por <b>Ana Carolina Ferreira</b> </p>  -->
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+   function irParaAjuda() {
+
+    sessionStorage.destino = "voluntario";
+
+    window.location.href = "login.html";
+}
+
+function EnviarPesquisa() {
+
+    var problemaAbandono = document.querySelector(
+        'input[name="problema-pesquisa"]:checked'
+    );
+
+    if (problemaAbandono == null) {
+
+        alert("Escolha uma resposta!");
+
+    } else {
+
+        fetch("http://localhost:3000/pesquisas/cadastrar", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+
+                problemaAbandonoServer: problemaAbandono.value
+
+            })
+
+        })
+
+        .then(function(resposta) {
+            if (resposta.ok) {
+                alert("Resposta enviada!");
+                carregarGrafico();
+            } else {
+                alert("Erro ao enviar!");
+
+            }
+
+        });
+
+    }
+}
+
+function carregarGrafico() {
+
+    fetch("http://localhost:3000/pesquisas/grafico")
+
+    .then(function(resposta) {
+        return resposta.json();
+    })
+
+    .then(function(dados) {
+
+    let labels = ["Grave", "Moderado", "Pequeno"];
+    let valores = [0, 0, 0];
+    let total = 0;
+
+    for (let i = 0; i < dados.length; i++) {
+
+        let categoria = dados[i].problemaAbandono;
+        let qtd = Number(dados[i].quantidade);
+
+        if (categoria == "Grave") {
+            valores[0] = qtd;
+        } 
+        else if (categoria == "Moderado") {
+            valores[1] = qtd;
+        } 
+        else if (categoria == "Pequeno") {
+            valores[2] = qtd;
+        }
+
+        total += qtd; 
+    }
+    document.getElementById("totalRespostas").innerText = total;
+    document.getElementById("totalGrave").innerText = valores[0];
+    document.getElementById("totalModerado").innerText = valores[1];
+    document.getElementById("totalPequeno").innerText = valores[2];
+
+        const ctx = document.getElementById("graficoProblema");
+
+        Chart.getChart("graficoProblema")?.destroy();
+
+        new Chart(ctx, {
+
+            type: "bar",
+
+            data: {
+
+                labels: labels,
+
+                datasets: [{
+                    label: "Quantidade de respostas",
+                    data: valores,
+                    backgroundColor: [
+                        "#E74C3C",
+                        "#F5B041",
+                        "#58D68D"
+                    ],
+                    borderRadius: 10,
+                    barPercentage:  0.6,       // largura da barra
+                    categoryPercentage: 1.0  // espaço entre barras
+                }]
+            },
+
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                       x: {
+                        ticks: {
+                            font: {
+                                size: 14,
+                                family: "Josefin Sans",
+                                // weight: "bold"
+                            },
+                            color: "#333"
+                        }
+                    },
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+    });
+}
+
+carregarGrafico();
+
+</script>
+       
+</body>
+</html>

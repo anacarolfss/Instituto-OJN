@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <header class="header"> <!-- INICIO HEADER -->
+            <nav class="nav-bar">
+                <!-- logo -->
+                <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png"alt="logo-instituto-ojn"> </a></div>
+
+                <!-- botao -->
+                <div class="btn"><button class="btn-quero-ajudar btn-cadastro"> <a href="login.html"> Entrar</a> </button>
+                </div>
+            </nav>
+
+
+        </header> <!-- FIM HEADER -->
+           <main class="cadastro-container">
+            <section class="cadastro-sessao">
+                 <div class="coluna-secundaria">
+                    <p class="texto-cadastro-coluna2">Olá, Bem-Vindo de volta!</p>
+                    <p class="p_cadastro">Digite seus dados pessoais</p>
+                    <p class="p_cadastro">e começe a jornada com a gente!</p>
+                    <a href="cadastro.html" class="btn-coluna2">Cadastrar-se</a>
+                </div>
+                <div class="coluna-principal">
+                    <form class="formulario">
+                        <h1 class="texto-cadastro">Faça o login no Instituto OJN</h1>
+                        <p class="p_cadastro_coluna1">Use seu e-mail para ter acesso ao instituto</p>
+                <div class="caixa-inputs">
+                    <input type="text" id="i_email_login" placeholder="Email:">
+                    <input type="text" id="i_senha_login" placeholder="Senha:">
+                </div>
+   
+                <button type="button" class="btn-coluna1" onclick="Entrar()">Entrar</button>
+
+                </form>
+                </div>
+               
+            </section>
+           </main>
+
+</body>
+</html>
+<script>
+function Entrar() {
+    let email = i_email_login.value;
+    let senha = i_senha_login.value;
+
+    if (email == "" || senha == "") {
+        alert("Preencha todos os campos");
+        return;
+    }
+
+    fetch("http://localhost:3000/usuarios/autenticar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            emailServer: email,
+            senhaServer: senha
+        })
+    })
+    .then(function(resposta) {
+        if (resposta.ok) {
+            return resposta.json();
+        } else {
+            throw "Email ou senha inválidos";
+        }
+    })
+    .then(function(dados) {
+        console.log(dados);
+
+        sessionStorage.ID_USUARIO = dados.id;
+        sessionStorage.NOME_USUARIO = dados.nome;
+        sessionStorage.EMAIL_USUARIO = dados.email;
+
+        let destino = sessionStorage.destino;
+        
+        if (destino == "adocao") {
+            window.location.href = "lista-adocao.html";
+
+        } else if (destino == "voluntario") {
+            window.location.href = "queroajudar.html";
+
+        } else {
+            window.location.href = "index.html";
+        }
+    })
+    .catch(function(erro) {
+        alert(erro);
+        console.log(erro);
+    });
+}
+</script>

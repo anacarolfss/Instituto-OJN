@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Adoção</title>
+</head>
+<body>
+    <header class="header"> <!-- INICIO HEADER -->
+        <nav class="nav-bar">
+            <!-- logo -->
+            <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png" alt="logo-instituto-ojn">
+                </a></div>
+            <div class="nav-lista">
+                <ul>
+                    <li class="nav-item"> <a href="index.html#bem-vindo" class="nav-link">Inicio</a> </li>
+                    <li class="nav-item"> <a href="index.html#sobre-instituto" class="nav-link">Sobre</a> </li>
+                    <li class="nav-item"> <a href="index.html#pesquisa-dashboard" class="nav-link">Pesquisa</a> </li>
+                    <li class="nav-item"> <a href="adocao.html" class="nav-link">Adoção</a> </li>
+                </ul>
+            </div>
+            <!-- botao -->
+                <div class="btn"><button class="btn-quero-ajudar btn-cadastro"> <a href="login.html"> Quero Ajudar</a> </button>
+            </div>
+        </nav>
+    </header> <!-- FIM HEADER -->
+
+    <section id="adocao-responsavel" class="container-adocao">
+        <section class="sessao-texto">
+            <h1 class="titulo-adocao">Você está pronto para adotar?</h1><br>
+            <p>Adotar um animal é um ato de amor, mas também uma grande responsabilidade. Antes de tomar essa
+                decisão, é importante refletir sobre o tempo, os cuidados e os recursos necessários para garantir
+                uma vida saudável e feliz para o animal.</p>
+            <br>
+            <p>Pensando nisso, esta etapa foi criada para te ajudar a entender se você está preparado para esse
+                compromisso. </p>
+            <br>
+            <p>A partir de algumas perguntas simples, será possível avaliar se, neste momento, você está
+                <span style="font-weight: bold;">apto a adotar</span> ou se ainda é necessário se preparar melhor.
+            </p>
+            <p>O objetivo não é impedir, mas conscientizar. Afinal, todo animal merece ser acolhido com
+                responsabilidade, carinho e respeito.</p>
+        </section>
+
+
+        <section class="container-adocao">
+            <h1 class="titulo-adocao">Adoção Responsável</h1>
+            <form class="container-formularios">
+                    <!-- REQUESITOS BASICOS -->
+                     <div class="caixa1e2">
+                        <div class="caixa1">  
+                            <h1 class="subtitulo-formulario">Requisitos Básicos</h1>
+                                <label for="idade" class="label-formulario">Você tem 18 anos ou mais?</label><br>
+                                <select id="idade" class="select-formulario">
+                                    <option value="" disabled selected >Selecione</option>
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+
+                               <br><br><label class="label-formulario">Todas as pessoas da sua casa concordam com a adoção?</label><br>
+                                <select id="concordar" class="select-formulario">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+
+                                <br><br><label class="label-formulario">O local onde você mora permite animais?</label><br>
+                                <select id="local" class="select-formulario">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="sim">Sim</option>
+                                    <option value="nao">Não</option>
+                                </select>
+
+                         <!-- FIM REQUESITOS BASICOS -->
+                         </div>
+
+                        <!--INICIO ESTRUTURA E CUIDADOS-->
+                        <div class="caixa1">
+                            <h1 class="subtitulo-formulario">Estrutura e cuidado:</h1>
+                               <label for="qtd-animais-adocao" class="label-formulario">Quantos animais você possui atualmente?</label><br>
+                                <select id="qtd_animais" class="select-formulario">
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="Nenhum">Nenhum</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="mais">5 ou mais</option>
+                                </select>   
+                               <br> <br><label class="label-formulario">Se você possui animais, eles são castrados e vacinados?</label><br>
+                                <select id="castracao_vacina" class="select-formulario">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="nenhum">Não possuo animais</option>
+                                    <option value="castrado">Apenas castrados</option>
+                                    <option value="vacinado">Apenas vacinados</option>
+                                    <option value="ambos">Castrados e vacinados</option>
+                                    <option value="nenhum-cuidado">Não são cuidados</option>
+                                </select>
+                                <br><br><label for="horas-animais" class="label-formulario">Por quantas horas o animal ficaria sozinho por
+                                    dia</label><br>
+                                <select id="horas" class="select-formulario">
+                                    <option value="" disabled selected>Selecione uma opção</option>
+                                    <option value="perfeito"> Menos de 4h</option>
+                                    <option value="otimo">Até 4h</option>
+                                    <option value="bom">Entre 5 e 9h</option>
+                                    <option value="pessimo">Mais de 9h</option>
+                                </select>
+
+
+                        </div> <!--FIM ESTRUTURA E CUIDADOS-->
+                  </div>      
+
+                        <!-- inicio responsabilidade/comportamento -->
+                        <div class="caixa-formulario">
+                            <h1 class="subtitulo-formulario">Responsabilidade e comportamento</h1>
+                               <br> <label class="label-formulario">Você está preparado(a) para o período de adaptação do animal?</label><br>
+                                <select id="adaptacao" class="select-formulario1 select-responsabilidade">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="sim">Sim, estou disposto(a) a dedicar tempo e paciência</option>
+                                    <option value="medio">Sim, mas espero que ele se
+                                        adapte rapidamente</option>
+                                    <option value="nao">Não tenho muito tempo para
+                                        esse processo</option>
+                                </select>
+                                <br><br><label class="label-formulario">Como você reagiria se o animal destruísse algum objeto da sua casa?</label><br>
+                                <select id="destruicao" class="select-formulario1 select-responsabilidade">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="sim">Entendo que faz parte e buscaria soluções</option>
+                                    <option value="medio">Ficaria bravo(a), mas tentaria controlar a situação</option>
+                                    <option value="ruim"> Isolaria ou prenderia o animal para evitar problemas</option>
+                                    <option value="nao">Não toleraria esse comportamento</option>
+                                </select>
+                               <br><br><label class="label-formulario">Se o animal demorasse a aprender onde fazer as
+                                    necessidades, como você reagiria?</label><br>
+                                <select id="necessidades" class="select-formulario1 select-responsabilidade">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="sim">Teria paciência e ensinaria com calma</option>
+                                    <option value="medio">Ficaria frustrado(a), mas continuaria tentando</option>
+                                    <option value="ruim">Repreenderia o animal</option>
+                                    <option value="nao">Consideraria desistir da adoção</option>
+                                </select>
+
+                            <div>
+                               <br> <label for="condicao-financeira" class="label-formulario">Quanto você pode investir mensalmente no animal?(em
+                                    R$)</label><br>
+                                <input type="number" id="input_valor_investimento" class="input-investimento" placeholder="Ex: 300">
+                            </div>
+                        </div> <!-- fim responsabilidade/comportamento -->
+                    </div>
+                    <button type="button" class="btn-coluna1 btn-formulario" onclick="VerificarDados()"> Verificar</button>
+                </form>
+                <div class="div_mensagem" style="text-align: center;"></div>
+        </section>
+    </section>
+    
+</body>
+<script src="./js/adocao.js"></script>
+
+</html>

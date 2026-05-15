@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Quero Ajudar</title>
+</head>
+
+<body>
+     <header class="header"> <!-- INICIO HEADER -->
+            <nav class="nav-bar">
+                <!-- logo -->
+                <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png"alt="logo-instituto-ojn"> </a></div>
+            </nav>
+
+
+        </header> <!-- FIM HEADER -->
+    <main class="conteudo-principal-voluntario">
+        <div class="container-adocao">
+            <h1 class="titulo-adocao">Seja um voluntário</h1>
+            <p>Nem todos podem adotar um animal, mas todos podem ajudar a transformar vidas.</p>
+        </div>
+
+        <div class="conteudo-principal-voluntario">
+            <div class="texto-img-voluntario">
+                <div class="caixa-texto-sobre-eleven">
+                <h2 class="subtitulo-formulario" style="font-size: 30px;">Esta é a Eleven!</h2><br>
+                <p>Ela foi encontrada perto de uma construção do <b>Burger King</b> , assustada, com frio e morrendo de medo
+                    das pessoas ao seu redor. Passava os dias com fome, dormindo na rua e sem confiar em ninguém.</p>
+                <p>Quando a resgatamos, percebemos o quanto ela estava traumatizada. Tinha medo de barulhos, medo de se
+                    aproximar para comer ou beber água e desconfiava de qualquer tentativa de carinho. Estava suja,
+                    desidratada e com muita dificuldade em confiar nas pessoas.</p>
+                <p>Os dias foram passando e, aos poucos, a Eleven começou a perceber que estava segura. Tivemos muitos
+                    momentos em que chamávamos ela e, por medo, ela não vinha. Mas com paciência, cuidado e muito amor,
+                    ela começou a se adaptar.</p>
+                <p>Hoje, a Eleven se tornou uma das mais amadas da casa. É agitada, brincalhona, pula em todo mundo e
+                    adora dar carinho. Sua vida mudou completamente, e ela finalmente teve a chance de ser feliz.</p>
+                <p>Infelizmente, muitos animais não recebem uma segunda oportunidade. Muitos continuam nas ruas,
+                    sofrendo maus-tratos, fome, abandono e correndo riscos diariamente.</p>
+                <p>Por isso, sabemos o quanto cada ajuda é importante. No Instituto OJN, você pode contribuir de
+                    diversas formas: <br> ajudando na divulgação dos animais para adoção, participando de eventos,
+                    auxiliando nos cuidados básicos, apadrinhando um animal ou até mesmo oferecendo carinho e atenção
+                    através de visitas voluntárias. 💛</p>
+                </div>
+                <div><img src="./img/img-eleven-voluntario.jpg "alt="img-eleven1" class="img-eleven-voluntario"></div>
+            </div>
+
+            <div class="caixas-info">
+                <div class="caixa-info">
+                    <h4 class="titulo-queroajudar">Divulgação</h4>
+                    <p>Você pode apoiar o nosso instituto divulgando o projeto nas suas redes sociais<br>
+                    Ao compartilhar, você ajuda a levar informação para mais pessoas, aumenta o reconhecimento da causa e contribui para que mais animais encontrem um lar.</p>
+                </div>
+
+                <div class="caixa-info">
+                    <h4 class="titulo-queroajudar"> Eventos</h4>
+                    <p>Participe dos nossos eventos e faça parte da nossa equipe. <br>
+                    Você pode nos ajudar na organização, no cuidado com os animais e na divulgação do projeto, garantindo que eles estejam seguros, confortáveis e bem acolhidos.</p>
+                </div>
+
+                <div class="caixa-info"><br>
+                    <h4 class="titulo-queroajudar">Apadrinhamento</h4>
+                    <p>Se você não tem tempo ou espaço para adotar, ainda pode fazer a diferença. <br>
+                    Com o apadrinhamento, você contribui com apoio financeiro e ajuda a oferecer cuidado, carinho e uma melhor qualidade de vida para os animais.</p>
+                </div>
+            </div>
+
+             <section class="cadastro-sessao">
+            <div class="coluna-principal">
+                <form class="formulario">
+                    <h1 class="texto-cadastro">Agendar Visita</h1>
+                    <p class="p_cadastro_coluna1" >Preencha as informações abaixo para agendar uma visita, conhecer nossos animais e descobrir como ajudar o nosso instituto!  💛</p>
+                    <div class="caixa-inputs">
+                    <input type="text" class="input_cadastro" placeholder="Nome Completo:" id="i_nome_completo">
+                    <input type="text" class="input_cadastro" placeholder="Email:" id="i_email" onblur="limparMensagem()" onkeyup="ValidarEmail()" >
+                    </div>
+                    <div class="caixa-inputs">
+                        <input type="tel" placeholder="Telefone: (11) 99999-9999" id="i_telefone" onblur="limparMensagem()" onkeyup="ValidarTelefone()">
+                                <select id="select_TipoAjuda" class="select-formulario select-formulario-voluntario">
+                                    <option value="" disabled selected>Como deseja ajudar?</option>
+                                    <option value="divulgacao">Divulgação</option>
+                                    <option value="eventos">Eventos</option>
+                                    <option value="apadrinhamento">Apadrinhamento</option>
+                                </select>
+                    </div>
+                    <br>
+                    <div id="div_mensagem"></div>
+                    <button type="button" class="btn-coluna1" onclick="ConfirmarAgendamento()">Confirmar</button>
+                </form>
+            </div>
+
+        </section>
+    </main>
+</body>
+
+</html>
+
+<script>
+
+        function ValidarEmail(){
+        let Email= i_email.value;
+        let Mensagem= ``;
+
+        if (Email.includes('@')){
+            Mensagem += "✅ Possui @ <br>";
+        }else{
+            Mensagem += "❌ Deve conter @ <br>";
+        }
+        if(Email.includes('.com') || Email.includes('.com.br')){
+            Mensagem+= "✅ Domínio válido <br>";
+        }else{
+            Mensagem+= `❌ Deve terminar com ".com" ou ".com.br" <br>`;
+        }
+
+        div_mensagem.innerHTML= Mensagem;
+
+    }
+
+    function limparMensagem(){
+            div_mensagem.innerHTML = "";
+        }
+
+    function ValidarTelefone(){
+        let Telefone=i_telefone.value;
+        let Mensagem = "";
+        
+        if(Telefone.includes('-')){
+         Mensagem += "✅ Possui '-' (hífen) <br>";
+        }else{
+          Mensagem += "❌ '-' (hífen)  <br>";
+        }
+        if(Telefone.length== 12) {
+            Mensagem += "✅ 11 caracteres incluindo DDD e o número do Telefone <br>";
+        }else{
+             Mensagem += "❌ Deve conter o DDD e o número do telefone <br>"; 
+        }
+
+         div_mensagem.innerHTML= Mensagem;
+
+    }
+    
+    function ConfirmarAgendamento() {
+    let NomeCompleto = i_nome_completo.value;
+    let Email = i_email.value;
+    let Telefone = i_telefone.value;
+    let TipoAjuda= select_TipoAjuda.value;
+    let Mensagem = "";
+
+   if (NomeCompleto == '' || Email == '' || Telefone == '' || TipoAjuda== '') {
+        Mensagem = '❌ Todos os campos devem ser preenchidos';
+    } 
+    else if (!Telefone.includes('-') || Telefone.length != 12) {
+        Mensagem = '❌ Telefone inválido';
+    } 
+    else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {
+        Mensagem = '❌ Email inválido';
+    } 
+    else {
+        alert("Verifique seu e-mail: enviamos uma mensagem para confirmar o dia da visita no nosso instituto!");
+        window.location.href = "index.html";
+    }
+    div_mensagem.innerHTML= Mensagem;
+    
+    }
+</script>

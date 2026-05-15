@@ -1,0 +1,737 @@
+/* importando fonte Josefin Sans: */
+@import url('https://fonts.googleapis.com/css2?family=Alice&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+body{
+    background-color:#fffefc ;
+}
+
+/* quando scrola a tela fica com uma transição */
+html {
+  scroll-behavior: smooth;
+}
+.img-logo{
+    width: 150px;
+    margin-left: 50px;
+}
+/* inicio header */
+.header{
+    /* display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;  */
+    box-shadow: 0px 3px 10px #464646;
+    width: 100%;
+    height: 100px;
+    position: sticky;
+    top: 0;
+    background-color:#fffefc ;
+    z-index: 5;
+
+}
+
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+        padding: 25px;
+}
+
+.nav-lista{
+    display: flex;
+    align-items: center;
+}
+
+.nav-lista ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+.nav-item{
+    margin: 0 15px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-link:hover {
+    color: #fab9ae;
+    transition: 0.3s;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+}
+
+.btn-cadastro{
+    margin-right: 100px;
+}
+
+.btn-quero-ajudar{
+    background-color: #fab9ae;
+    padding: 10px;
+    color: #48373b;
+    border:1px solid #fab9ae;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.btn-quero-ajudar:hover{
+    background-color: #fffefc;
+    color: #725f63;
+    border:1px solid #fab9ae;
+    transition: background-color 0.6s, color 0.2s; 
+}
+
+.img-cachorro{
+    width: 400px;
+}
+
+/* fim header */
+.conteudo-principal{
+    display: flex;
+    position: relative;
+    height: 500px;
+}
+
+.coluna1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 900px;
+    text-align: center;
+    padding: 100px;
+}
+
+.coluna2{
+    position: relative;
+    background-color: #fab9ae;
+    height: 550px;
+    width: 400px;
+    left: 100px;
+}
+
+
+.titulo{
+    margin-bottom: 20px;
+    font-size: 60px;
+    color: #725f63;
+}
+
+.titulo-sobre{
+    font-size: 50px;
+}
+
+p{
+    font-size: 20px;
+}
+
+.img-caes{
+    width: 500px;
+    border-radius: 5px;
+    margin: 60px;
+    
+}
+
+.img-caes-container{
+    background-color: #fab9ae;
+    height: 200px;
+    width: 500px;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+.container-sobre{
+    display: flex;
+}
+
+.p-delicado{
+    width: 100%;
+    text-align: center;
+    background-color: #fab9aeae;
+}
+
+
+a{
+    text-decoration: none;
+    color: #48373b;
+} 
+
+ .info-adocao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    text-align: center;
+    width: 900px;
+} 
+
+/* SESSAO PESQUISA */
+.container-pesquisa{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titulo-pesquisa{
+    font-size: 50px;
+    color: #725f63;
+}
+
+.texto-pesquisa{
+    width: 900px;
+    padding: 20px;
+    text-align: center;
+    margin-top: 500px;
+}
+.caixa-perguntas{
+    display: flex;
+    flex-direction: column; 
+
+} 
+
+.pergunta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fab9aeae;
+    width: 750px;
+    height: 70px;
+    border-radius: 10px;
+}
+.input-perguntas{
+    display: flex;
+    justify-content: center;
+    color: #725f63;
+    gap: 5px;
+}
+
+.subtitulo-pergunta{
+    font-size: 18px;
+    color: #524649;
+    font-weight: bold;
+}
+
+.btn-pesquisa{
+    margin-top: 30px;
+}
+
+
+/* TELA CADASTRO */
+.cadastro-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cadastro-sessao{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 500px;
+    width: 1100px;
+    margin: 30px;
+    border-radius: 15px;
+    border: 1px solid #fab9ae;
+    background-color: #fff;
+    
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+}
+
+.formulario input{
+    width: 300px;
+    padding: 20px;
+    height: 20px;
+    margin: 10px;
+    border: 1px solid #fab9ae;
+    border-radius: 10px;
+    outline-color: #fab9ae;
+}
+
+.texto-cadastro{
+    font-size: 40px;
+    color: #48373b;
+}
+
+.caixa-inputs{
+    display: flex;
+    flex-direction: row;
+}
+
+.coluna-secundaria{
+    background-color: #fab9ae;
+    height: 500px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.p_cadastro{
+    font-size: 16px;
+    padding: 4px;
+    color: #6c5f62;
+}
+
+.texto-cadastro-coluna2{
+    color: #48373b;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.p_cadastro_coluna1{
+    color: #6c5f62;
+}
+
+.btn-coluna2{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #48373b;
+    font-size: 14px;
+    margin-top: 10px;
+
+}
+
+.btn-coluna2:hover {
+    background-color: #fab9ae;
+    color: #48373b;
+    border: 1px solid #fff;
+    transition: background-color 0.6s, color 0.2s; 
+}
+
+.btn-coluna1{
+    background-color: #fab9ae;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #48373b;
+    font-size: 14px;
+    border: none;
+}
+
+.btn-coluna1:hover{
+    background-color: #fff;
+    color: #48373b;
+    border: 1px solid #fab9ae   ;
+    transition: background-color 0.6s, color 0.2s; 
+}
+
+
+/* validação de senha */
+#div_mensagem {
+    font-size: 14px;    
+    text-align: center;   
+    margin-bottom: 5px;
+    opacity: 1;
+    transition: 0.3s;
+}
+
+/* Adoçao */
+
+.titulo-adocao{
+    font-size: 50px;
+    color: #48373b;
+    text-align: center;
+    margin: 30px;
+}
+
+p{
+    font-size: 20px;
+}
+
+.container-adocao{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container-formularios{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+
+.caixa1e2{
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 1200px;
+}
+.caixa1{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.select-formulario{
+    padding: 10px;
+    font-size: 16px;
+    width: 450px;
+    border: 1px solid #fab9ae;
+    color: #725f63;
+    border-radius: 5px;
+    text-align: center; 
+}
+
+.caixa-formulario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 1200px;
+    text-align: center; 
+}
+
+.label-formulario{
+    font-size: 18px;
+    color: #725f63;
+    font-weight: bold;
+    text-align: center;
+}
+
+.select-formulario1{
+    padding: 10px;
+    font-size: 16px;
+    width: 50%;
+    border: 1px solid #fab9ae;
+    color: #725f63;
+    border-radius: 5px;
+    text-align: center; 
+
+}
+
+.input-investimento{
+    padding: 10px;
+    font-size: 16px;
+    width: 590px;
+    text-align: center;
+    border: 1px solid #fab9ae;
+    color: #725f63;
+    border-radius: 5px;
+}
+.sessao-texto{
+    text-align: center;
+    width: 1000px;
+}
+
+.subtitulo-formulario{
+    text-align: center;
+    color: #48373b;
+}
+
+.btn-formulario{
+    margin: 5px;
+}
+/* DASHBOARD */
+
+.dados-pesquisa{
+    width: 250px;
+    margin: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.dados-pesquisa h2{
+    font-size: 50px;
+    color: #fab9ae;
+}
+
+.dados-pesquisa p{
+    font-size: 18px;
+    color: #555;
+}
+
+.card-grafico{
+    width: 50%;
+    margin: 40px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-grafico h3{
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+#graficoProblema{
+    width: 100% !important;
+    height: 400px !important;
+}
+
+.kpis-dados{
+    display: flex;
+}
+
+/* footer */
+footer{
+    display: flex;
+    margin-top: 800px;
+    background-color: #fab9ae;
+    height: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.img-sptech{
+    width: 150px;
+}
+
+.subtitulo-adocao{
+    color: #524649;
+    font-size: 32px;
+    text-align: center;
+
+}
+
+.container-principal-adocao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #fffefc;
+}
+
+.sessao-texto-adocao{
+    width: 950px;
+    text-align: center;
+}
+
+.subtitulo-adocao{
+    color: #524649;
+    font-size: 32px;
+    padding: 25px;
+}
+
+/* adocao */
+
+.container-caes-adocao{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* min-height: 100vh; */
+    margin: 100px;
+}
+.card-caes{
+    display: flex;
+    justify-content: center;
+    width: 400px;
+    height: 350px;
+    position: relative;
+    background-color: #fab9ae;
+    border-radius: 20px;
+    box-shadow: 0px 35px 80px rgba(0, 0, 0, 0.15);
+    margin: 50px;
+}
+
+.card-caes:hover{
+    height: 600px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.card-caes .img-box{
+    position: absolute;
+    width: 300px;
+    height: auto;
+    top: 0px;
+}
+.card-caes .img-box{
+    top: -100px;
+    scale: 0.75;
+    transition: 0.5s;
+}
+
+.card-caes .img-box img{
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-caes .content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 275px;
+    width: 100%;
+    padding: 0px 40px;
+    text-align: center;
+    height: 40px;
+    overflow: hidden;
+    transition: 0.5s;
+}
+
+.card-caes:hover .content{
+    top: 260px;
+    height: 600px;
+    transition: 0.5s;   
+}
+
+.btn-card{
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #48373b;
+    font-size: 14px;
+    margin-top: 10px;
+
+}
+
+.btn-card:hover {
+    background-color: #fab9ae;
+    color: #48373b;
+    border: 1px solid #fff;
+    transition: background-color 0.6s, color 0.2s; 
+}
+
+.nome-animais{
+    font-size: 25px;
+    color: #48373b;
+    font-weight: bold;
+}
+
+.img-adocao{
+    width: 450px;
+}
+
+
+/* AGENDAMENTO */
+
+.container-agendamento{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.texto-agendamento{
+    text-align: center;
+}
+
+.formulario-agendamento{
+    display: flex;
+}
+
+/* VOLUNTARIO: */
+
+.conteudo-principal-voluntario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.caixa-texto-sobre-eleven{
+    width: 820px;
+    padding: 35px;
+    margin: 30px;
+}
+
+.img-eleven-voluntario{
+    border-radius: 15px;
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+}
+
+.img-eleven-voluntario:hover{
+    transform: translateY(-10px);  
+    transition: 0.3s;
+}
+
+.texto-img-voluntario{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.caixas-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1500px;
+    
+}
+
+.caixa-info{
+    /* width: 25%; */
+    width: 1200px;
+    height: 250px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    background-color: #fab9ae83;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.caixa-info:hover{
+    transform: translateY(-10px); 
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.titulo-queroajudar{
+    font-size: 22px;
+    color: #48373b;
+    padding: 5px;
+}
+
+
+.select-formulario-voluntario{
+    width: 300px;
+    margin: 10px;
+    border: 1px solid #fab9ae;
+    border-radius: 10px;
+    outline-color: #fab9ae;
+    color: #6c5f62;
+    font-size: 13px;
+    text-align: start;
+}
