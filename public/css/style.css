@@ -70,9 +70,6 @@ html {
     align-items: center;
 }
 
-.btn-cadastro{
-    margin-right: 100px;
-}
 
 .btn-quero-ajudar{
     background-color: #fab9ae;
@@ -81,8 +78,18 @@ html {
     border:1px solid #fab9ae;
     border-radius: 15px;
     cursor: pointer;
+    position: relative;
+    right: 100px; 
+    top: 15px;
+    height: 35px; 
+    
 }
 
+.btn-cadastro{
+    position: relative;
+    right: 150px; 
+    top: 0px;
+}
 .btn-quero-ajudar:hover{
     background-color: #fffefc;
     color: #725f63;
@@ -92,6 +99,19 @@ html {
 
 .img-cachorro{
     width: 400px;
+}
+.loading-div{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
+
+.loading-div img{
+    width: 70px;
+    height: 70px;
 }
 
 /* fim header */

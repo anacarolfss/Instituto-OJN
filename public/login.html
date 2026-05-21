@@ -1,100 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <title>Login</title>
 </head>
+
 <body>
     <header class="header"> <!-- INICIO HEADER -->
-            <nav class="nav-bar">
-                <!-- logo -->
-                <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png"alt="logo-instituto-ojn"> </a></div>
+        <nav class="nav-bar">
+            <!-- logo -->
+            <div><a href="index.html"><img class="img-logo" src="./img/LOGO-INSTITUTO OJN.png" alt="logo-instituto-ojn">
+                </a></div>
 
-                <!-- botao -->
-                <div class="btn"><button class="btn-quero-ajudar btn-cadastro"> <a href="login.html"> Entrar</a> </button>
-                </div>
-            </nav>
+            <!-- botao -->
+            <div class="btn"><button class="btn-quero-ajudar btn-cadastro"> <a href="login.html"> Entrar</a> </button>
+            </div>
+        </nav>
 
 
-        </header> <!-- FIM HEADER -->
-           <main class="cadastro-container">
-            <section class="cadastro-sessao">
-                 <div class="coluna-secundaria">
-                    <p class="texto-cadastro-coluna2">Olá, Bem-Vindo de volta!</p>
-                    <p class="p_cadastro">Digite seus dados pessoais</p>
-                    <p class="p_cadastro">e começe a jornada com a gente!</p>
-                    <a href="cadastro.html" class="btn-coluna2">Cadastrar-se</a>
-                </div>
-                <div class="coluna-principal">
-                    <form class="formulario">
-                        <h1 class="texto-cadastro">Faça o login no Instituto OJN</h1>
-                        <p class="p_cadastro_coluna1">Use seu e-mail para ter acesso ao instituto</p>
-                <div class="caixa-inputs">
-                    <input type="text" id="i_email_login" placeholder="Email:">
-                    <input type="text" id="i_senha_login" placeholder="Senha:">
-                </div>
-   
-                <button type="button" class="btn-coluna1" onclick="Entrar()">Entrar</button>
+    </header> <!-- FIM HEADER -->
+    <main class="cadastro-container">
+        <section class="cadastro-sessao">
+            <div class="coluna-secundaria">
+                <p class="texto-cadastro-coluna2">Olá, Bem-Vindo de volta!</p>
+                <p class="p_cadastro">Digite seus dados pessoais</p>
+                <p class="p_cadastro">e começe a jornada com a gente!</p>
+                <a href="cadastro.html" class="btn-coluna2">Cadastrar-se</a>
+            </div>
+            <div class="coluna-principal">
+                <form class="formulario">
+                    <h1 class="texto-cadastro">Faça o login no Instituto OJN</h1>
+                    <p class="p_cadastro_coluna1">Use seu e-mail para ter acesso ao instituto</p>
+                    <div class="caixa-inputs">
+                        <input type="text" id="i_email_login" placeholder="Email:">
+                        <input type="password" id="i_senha_login" placeholder="Senha:">
+                    </div>
+                    <div id="div_loading" class="loading-div">
+                        <img src="./img/loading.gif.gif" id="loading-gif">
+                    </div>
+                    <button type="button" class="btn-coluna1" onclick="Entrar()">Entrar</button>
 
                 </form>
-                </div>
-               
-            </section>
-           </main>
+            </div>
+
+        </section>
+    </main>
 
 </body>
+
 </html>
 <script>
-function Entrar() {
-    let email = i_email_login.value;
-    let senha = i_senha_login.value;
+    function Entrar() {
+        let email = i_email_login.value;
+        let senha = i_senha_login.value;
 
-    if (email == "" || senha == "") {
-        alert("Preencha todos os campos");
-        return;
-    }
+        if (email == "" || senha == "") {
+            alert("Preencha todos os campos");
+            return;
+        }
+        div_loading.style.display = "block";
 
-    fetch("http://localhost:3000/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            emailServer: email,
-            senhaServer: senha
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
         })
-    })
-    .then(function(resposta) {
-        if (resposta.ok) {
-            return resposta.json();
-        } else {
-            throw "Email ou senha inválidos";
-        }
-    })
-    .then(function(dados) {
-        console.log(dados);
+            .then(function (resposta) {
+                if (resposta.ok) {
+                    return resposta.json();
+                } else {
+                    throw "Email ou senha inválidos";
+                }
+            })
+            .then(function (dados) {
+                console.log(dados);
 
-        sessionStorage.ID_USUARIO = dados.id;
-        sessionStorage.NOME_USUARIO = dados.nome;
-        sessionStorage.EMAIL_USUARIO = dados.email;
+                sessionStorage.ID_USUARIO = dados.id;
+                sessionStorage.NOME_USUARIO = dados.nome;
+                sessionStorage.EMAIL_USUARIO = dados.email;
 
-        let destino = sessionStorage.destino;
-        
-        if (destino == "adocao") {
-            window.location.href = "lista-adocao.html";
+                let destino = sessionStorage.destino;
 
-        } else if (destino == "voluntario") {
-            window.location.href = "queroajudar.html";
+                if (destino == "adocao") {
+                    setTimeout(function () {
+                        div_loading.style.display = "none";
+                        window.location.href = "lista-adocao.html";
+                    }, 1000);
 
-        } else {
-            window.location.href = "index.html";
-        }
-    })
-    .catch(function(erro) {
-        alert(erro);
-        console.log(erro);
-    });
-}
+                } else if (destino == "voluntario") {
+                    setTimeout(function () {
+                        div_loading.style.display = "none";
+                        window.location.href = "queroajudar.html";
+                    }, 1000);
+
+                } else {
+                    setTimeout(function () {
+
+                        div_loading.style.display = "none";
+                        window.location.href = "index.html";
+
+                    }, 1000);
+                }
+            })
+            .catch(function (erro) {
+                 div_loading.style.display = "none";
+                alert(erro);
+                console.log(erro);
+            });
+    }
 </script>

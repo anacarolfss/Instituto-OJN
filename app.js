@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config(); //evita q os dados sensiveis fique expostos no código 
 
 const express = require('express');
 const cors = require('cors');

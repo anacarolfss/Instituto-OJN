@@ -176,17 +176,25 @@ function VerificarDados() {
     if (eliminatoria || pontuacao < 100) {
 
         let irVoluntario = confirm("❌ Você não está apto para adoção. Deseja fazer login para ver voluntariado?");
-
         if (irVoluntario) {
+            div_loading.style.display = "block";
+
             sessionStorage.destino = "voluntario";
-            window.location.href = "login.html";
+            setTimeout(function () {
+                div_loading.style.display = "none";
+                window.location.href = "login.html";
+            }, 3000);
         }
     }
     else if (pontuacao >= 110) {
         let irAdocao = confirm("🎉 Você está apto! Deseja fazer login para continuar?");
-        if (irAdocao) {
-            sessionStorage.destino = "adocao"; 
-            window.location.href = "queroajudar.html";
-        }
+        div_loading.style.display = "block";
+
+        sessionStorage.destino = "adocao";
+
+        setTimeout(function () {
+            div_loading.style.display = "none";
+            window.location.href = "login.html";
+        }, 3000);
     }
 }
