@@ -1,46 +1,55 @@
-_Implementação de referência de como fazer upload de arquivos e salvar **Local**_
+# Instituto OJN 🐾
 
-# Como usar
+O Instituto OJN é um projeto acadêmico desenvolvido durante o semestre da faculdade com o objetivo de aplicar, na prática, os conhecimentos aprendidos nas aulas de desenvolvimento web e banco de dados.
 
-1. Clone este repositório em sua máquina.
+O projeto foi criado com foco na conscientização sobre o abandono animal, incentivando a adoção responsável, o voluntariado e a participação das pessoas em ações de apoio à causa animal.
 
+Durante o desenvolvimento do sistema, foram utilizados diversos conceitos aprendidos ao longo do semestre, como:
+- estruturação de páginas com HTML;
+- estilização com CSS;
+- interatividade utilizando JavaScript;
+- integração entre front-end e back-end;
+- criação de API com Node.js e Express;
+- modelagem e manipulação de banco de dados MySQL;
+- utilização de rotas, controllers e models;
+- validações de formulários;
+- armazenamento de sessões com sessionStorage;
+- consumo de dados com fetch.
 
-1. Crie, no Banco de Dados, as tabelas necessárias para o funcionamento deste projeto.
-- Siga as instruções no arquivo **/site/src/database/script-tabelas.sql**
+O sistema possui funcionalidades como:
+- cadastro de usuários;
+- login;
+- questionário de adoção responsável;
+- sistema de pontuação para análise de perfil de adoção;
+- área de voluntariado;
+- protótipo de agendamento;
+- dashboards relacionadas ao abandono animal.
 
+A proposta do projeto é unir tecnologia e conscientização social, demonstrando como soluções digitais podem auxiliar instituições e pessoas envolvidas na proteção animal.
 
-3. Adicione as credenciais de Banco de Dados no arquivo **/site/src/database/config.js**, seguindo as instruções neste.
+## Tecnologias utilizadas
 
-4. Execute os comandos abaixo:
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- Express
+- MySQL
 
-```
-npm i
-``` 
-_O comando acima irá instalar as bibliotecas necessárias para o funcionamento do projeto. As bibliotecas a serem instaladas estão listadas no arquivo **package.json** então é muito importante que este não seja alterado. Será criada uma nova pasta/diretório chamado **node_modules** quando o comando for finalizado, que é onde as bibliotecas estão localizadas. Não altere a pasta/diretório._
+## Banco de Dados
 
-```
-npm start
-``` 
+O banco de dados foi modelado para armazenar:
+- usuários;
+- pesquisas;
+- respostas;
+- agendamentos.
 
-_O comando acima irá iniciar seu projeto e efetuar os comandos de acordo com a sua parametrização feita nos passos anteriores._
+## Objetivo do Projeto
 
-6. Para "ver" seu projeto funcionando, acesse em seu navegador o caminho **informado no terminal**.
+O principal objetivo do Instituto OJN é conscientizar sobre os impactos do abandono animal e incentivar atitudes mais responsáveis em relação à adoção e aos cuidados com os animais.
 
-7. Caso queira parar a execução, tecle **CTRL+C** no terminal em que o projeto está rodando.
+Além disso, o projeto também teve como objetivo desenvolver habilidades técnicas adquiridas durante o semestre, colocando em prática conceitos reais de desenvolvimento full-stack.
 
+## Desenvolvido por
 
-# Como implementar no seu próprio projeto
-
-1. Você deve adicionar no seu projeto a dependência multer:
-
-```
-npm install multer
-```
-
-2. Criar o arquivo de configuração do multer. 
-- Exemplo de configuração: [configUpload.js](https://github.com/fernandacaramico/exemplo-upload-imagem-local/blob/main/src/config/configUpload.js)
-
-3. Criar uma rota para receber o upload.
-- Exemplo de rota: [usuarioRouter.js](https://github.com/fernandacaramico/exemplo-upload-imagem-local/blob/main/src/routes/usuarioRouter.js)
-
-_Este projeto foi desenvolvido por [@WilliamMN](https://github.com/WilliamMN/)_
+Ana Carolina Ferreira Santos
