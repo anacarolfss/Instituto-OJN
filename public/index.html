@@ -24,7 +24,7 @@
                     </ul>
                 </div>
                 <!-- botao -->
-                <button type="button" class="btn-quero-ajudar " onclick="irParaAjuda()"> Quero Ajudar</button>
+                <button type="button" class="btn-quero-ajudar " onclick="irParaAjuda()"> Ser Voluntário</button>
             </nav>
 
 
@@ -43,7 +43,6 @@
                         respeito</strong> e
                     <strong>amor</strong> .
                 </p> <br>
-                <!-- <div class="btn"><button class="btn-quero-ajudar"> <a href="cadastro.html"> Quero Ajudar</a> </button> -->
             </section>
 
             <section class="coluna2">
@@ -60,23 +59,23 @@
             <section class="coluna1">
                 <br><br><br><br>
                 <h1 class="titulo">Sobre o Instituto </h1>
-                <p>O <strong>Instituto OJN</strong> I nasce com o propósito de transformar a realidade dos animais em
-                    situação de rua e, principalmente, a relação deles com a população. Muitos são abandonados e
-                    esquecidos, enfrentando dificuldades significativas, como fome, frio, maus-tratos e a falta de
-                    cuidados básicos.</p>
+                <p>O <strong>Instituto OJN</strong> é uma iniciativa voltada à proteção e ao bem-estar de animais em
+                    situação de vulnerabilidade. O nosso foco é oferecer acolhimento, cuidados essenciais e apoio à
+                    reabilitação desses animais, garantindo melhores condições de vida.</p>
                 <br>
-                <p>A proposta da nossa ONG é oferecer a esses animais uma nova chance, para que tenham uma vida digna e
-                    especial, com acolhimento, monitoramento semanal por diversos profissionais da saúde, cuidado
-                    personalizado, adestramento, visitas e momentos de lazer e brincadeira.</p>
+                <p>O projeto também incentiva a adoção responsável, promovendo consciência sobre os cuidados necessários
+                    antes e depois da adoção.</p>
                 <br>
-                <p>Além disso, promovemos a adoção consciente, incentivando o planejamento e o compromisso com os
-                    cuidados necessários, sejam eles físicos ou emocionais.</p>
+                <p>Além disso, conta com uma área de <b>voluntariado</b>, destinada a pessoas que desejam contribuir
+                    ativamente com a causa. Os voluntários podem apoiar nas atividades do instituto, ajudar nos cuidados
+                    com os animais, participar de campanhas de conscientização e colaborar em ações que promovem
+                    bem-estar e visibilidade para os animais resgatados.</p>
                 <br>
-                <p>Mais do que resgatar, nosso instituto tem como principal objetivo transformar a forma como as pessoas
-                    enxergam os animais, promovendo empatia, respeito, responsabilidade e amor.</p>
-                <br>
+                <button type="button" class="btn-voluntario" onclick="irParaAjuda()"> Ser Voluntário</button>
+                <br><br>
                 <p class="p-delicado"><strong>Afinal, acreditamos que mudar a vida de um animal também é transformar o
                         mundo ao nosso redor.</strong></p>
+
             </section>
         </section>
         <div>
@@ -106,30 +105,30 @@
                     </div>
                 </div>
             </div>
-            
+
             <button type="button" class="btn-coluna1 btn-pesquisa" onclick="EnviarPesquisa()"> Enviar Resposta</button>
             <div class="kpis-dados">
 
                 <div class="dados-pesquisa">
+                    <p>Total Respostas</p><br>
                     <h2 id="totalRespostas">0</h2>
-                    <p>Respostas registradas</p>
                 </div>
 
                 <div class="dados-pesquisa">
-                    <h2 id="totalGrave">0</h2>
-                    <p>Grave</p>
+                    <p>Pequeno</p><br>
+                    <h2 id="percentualPequeno" style="color: #58D68D;">0%</h2>
+
                 </div>
 
                 <div class="dados-pesquisa">
-                    <h2 id="totalModerado">0</h2>
-                    <p>Moderado</p>
+                    <p>Moderado</p><br>
+                    <h2 id="percentualModerado" style="color: #F5B041;">0%</h2>
                 </div>
 
                 <div class="dados-pesquisa">
-                    <h2 id="totalPequeno">0</h2>
-                    <p>Pequeno</p>
+                    <p>Grave</p><br>
+                    <h2 id="percentualGrave" style="color: #E74C3C;">0%</h2>
                 </div>
-
             </div>
             <div class="card-grafico">
                 <h3>Percepção sobre abandono animal</h3>
@@ -147,71 +146,50 @@
         function irParaAjuda() {
 
             sessionStorage.destino = "voluntario";
-
-            window.location.href = "login.html";
+            window.location.href = "cadastro.html";
         }
 
         function EnviarPesquisa() {
 
-            var problemaAbandono = document.querySelector(
-                'input[name="problema-pesquisa"]:checked'
-            );
+            var problemaAbandono = document.querySelector('input[name="problema-pesquisa"]:checked' );
 
             if (problemaAbandono == null) {
-
                 alert("Escolha uma resposta!");
-
             } else {
 
-                fetch("http://localhost:3000/pesquisas/cadastrar", {
-
+                fetch("/pesquisas/cadastrar", {
                     method: "POST",
-
                     headers: {
                         "Content-Type": "application/json"
                     },
-
                     body: JSON.stringify({
-
                         problemaAbandonoServer: problemaAbandono.value
-
                     })
-
                 })
-
                     .then(function (resposta) {
                         if (resposta.ok) {
                             alert("Resposta enviada!");
                             carregarGrafico();
                         } else {
                             alert("Erro ao enviar!");
-
                         }
-
                     });
-
             }
         }
 
         function carregarGrafico() {
-
-            fetch("http://localhost:3000/pesquisas/grafico")
-
+            fetch("/pesquisas/grafico")
                 .then(function (resposta) {
                     return resposta.json();
                 })
-
                 .then(function (dados) {
-
+                    console.log("Dados recebidos da pesquisa:", dados);
                     let labels = ["Grave", "Moderado", "Pequeno"];
                     let valores = [0, 0, 0];
                     let total = 0;
-
                     for (let i = 0; i < dados.length; i++) {
-
                         let categoria = dados[i].problemaAbandono;
                         let qtd = Number(dados[i].quantidade);
-
                         if (categoria == "Grave") {
                             valores[0] = qtd;
                         }
@@ -221,17 +199,24 @@
                         else if (categoria == "Pequeno") {
                             valores[2] = qtd;
                         }
-
                         total += qtd;
                     }
-                    document.getElementById("totalRespostas").innerText = total;
-                    document.getElementById("totalGrave").innerText = valores[0];
-                    document.getElementById("totalModerado").innerText = valores[1];
-                    document.getElementById("totalPequeno").innerText = valores[2];
+
+                    let porcentagemGrave = (valores[0] / total) * 100;
+                    let porcentagemModerado = (valores[1] / total) * 100;
+                    let porcentagemPequeno = (valores[2] / total) * 100;
+                    console.log("Total calculado:", total);
+                    console.log("Valores:", valores);
+                    percentualGrave.innerHTML = `${porcentagemGrave.toFixed(0)}%`;
+                    percentualModerado.innerHTML = `${porcentagemModerado.toFixed(0)}%`;
+                    percentualPequeno.innerHTML = `${porcentagemPequeno.toFixed(0)}%`;
+
+                    document.getElementById("totalRespostas").innerHTML = total;
+
 
                     const ctx = document.getElementById("graficoProblema");
 
-                    Chart.getChart("graficoProblema")?.destroy();
+                    Chart.getChart("graficoProblema")?.destroy(); //evita duplicar dados
 
                     new Chart(ctx, {
 
@@ -274,6 +259,7 @@
                                     }
                                 },
                                 y: {
+
                                     beginAtZero: true
                                 }
                             }

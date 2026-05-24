@@ -476,10 +476,31 @@ p{
 .btn-formulario{
     margin: 5px;
 }
+
+.btn-voluntario{
+    background-color: #fab9ae;
+    padding: 15px;
+    color: #48373b;
+    border:1px solid #fab9ae;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+    height: 45px; 
+    position: relative;
+    font-size: 16px;
+}
+
+.btn-voluntario:hover{
+    background-color: #fffefc;
+    color: #725f63;
+    border:1px solid #fab9ae;
+    transition: background-color 0.6s, color 0.2s; 
+}
 /* DASHBOARD */
 
 .dados-pesquisa{
-    width: 250px;
+    width: 220px;
+    height: 120px;
     margin: 40px;
     background-color: white;
     padding: 20px;

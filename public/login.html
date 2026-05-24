@@ -74,46 +74,55 @@
             })
         })
             .then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
                 if (resposta.ok) {
-                    return resposta.json();
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        let destino = sessionStorage.destino;
+
+                        setTimeout(function () {
+
+                            div_loading.style.display = "none";
+
+                            if (destino == "adocao") {
+                                window.location.href = "lista-adocao.html";
+
+                            } else if (destino == "voluntario") {
+                                window.location.href = "queroajudar.html";
+
+                            } else {
+                                window.location.href = "index.html";
+                            }
+
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
                 } else {
-                    throw "Email ou senha inválidos";
+
+                    div_loading.style.display = "none";
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        alert(texto);
+                    });
                 }
-            })
-            .then(function (dados) {
-                console.log(dados);
 
-                sessionStorage.ID_USUARIO = dados.id;
-                sessionStorage.NOME_USUARIO = dados.nome;
-                sessionStorage.EMAIL_USUARIO = dados.email;
-
-                let destino = sessionStorage.destino;
-
-                if (destino == "adocao") {
-                    setTimeout(function () {
-                        div_loading.style.display = "none";
-                        window.location.href = "lista-adocao.html";
-                    }, 1000);
-
-                } else if (destino == "voluntario") {
-                    setTimeout(function () {
-                        div_loading.style.display = "none";
-                        window.location.href = "queroajudar.html";
-                    }, 1000);
-
-                } else {
-                    setTimeout(function () {
-
-                        div_loading.style.display = "none";
-                        window.location.href = "index.html";
-
-                    }, 1000);
-                }
             })
             .catch(function (erro) {
-                 div_loading.style.display = "none";
-                alert(erro);
-                console.log(erro);
+                div_loading.style.display = "none";
+                console.log("Erro no login:", erro);
             });
+
+            return false;
     }
 </script>
