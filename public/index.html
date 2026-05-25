@@ -202,14 +202,14 @@
                         total += qtd;
                     }
 
-                    let porcentagemGrave = (valores[0] / total) * 100;
-                    let porcentagemModerado = (valores[1] / total) * 100;
-                    let porcentagemPequeno = (valores[2] / total) * 100;
+                    let porcentagemGrave = Number((valores[0] / total) * 100);
+                    let porcentagemModerado = Number((valores[1] / total) * 100);
+                    let porcentagemPequeno = Number((valores[2] / total) * 100);
                     console.log("Total calculado:", total);
                     console.log("Valores:", valores);
-                    percentualGrave.innerHTML = `${porcentagemGrave.toFixed(0)}%`;
-                    percentualModerado.innerHTML = `${porcentagemModerado.toFixed(0)}%`;
-                    percentualPequeno.innerHTML = `${porcentagemPequeno.toFixed(0)}%`;
+                    percentualGrave.innerHTML = `${porcentagemGrave.toFixed(1)}%`;
+                    percentualModerado.innerHTML = `${porcentagemModerado.toFixed(1)}%`;
+                    percentualPequeno.innerHTML = `${porcentagemPequeno.toFixed(1)}%`;
 
                     document.getElementById("totalRespostas").innerHTML = total;
 
