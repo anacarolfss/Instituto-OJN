@@ -1,9 +1,7 @@
 var pesquisaModel = require("../models/pesquisaModel");
 
 function cadastrar(req, res) {
-
     var problemaAbandono = req.body.problemaAbandonoServer;
-
     pesquisaModel.cadastrar(problemaAbandono)
 
     .then(function(resultado) {

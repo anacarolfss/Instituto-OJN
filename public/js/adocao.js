@@ -3,7 +3,6 @@ let mensagem = ``;
 function VerificarDados() {
     let pontuacao = 100;
 
-    // pega o elemento
     let idade = document.querySelector("#idade");
     let div_mensagem = document.querySelector(".div_mensagem");
     let eliminatoria = false;

@@ -144,19 +144,15 @@
     <script>
 
         function irParaAjuda() {
-
             sessionStorage.destino = "voluntario";
             window.location.href = "cadastro.html";
         }
-
+        
         function EnviarPesquisa() {
-
             var problemaAbandono = document.querySelector('input[name="problema-pesquisa"]:checked' );
-
             if (problemaAbandono == null) {
                 alert("Escolha uma resposta!");
             } else {
-
                 fetch("/pesquisas/cadastrar", {
                     method: "POST",
                     headers: {
@@ -213,19 +209,15 @@
 
                     document.getElementById("totalRespostas").innerHTML = total;
 
-
                     const ctx = document.getElementById("graficoProblema");
 
                     Chart.getChart("graficoProblema")?.destroy(); //evita duplicar dados
 
                     new Chart(ctx, {
-
                         type: "bar",
 
                         data: {
-
                             labels: labels,
-
                             datasets: [{
                                 label: "Quantidade de respostas",
                                 data: valores,
@@ -253,13 +245,11 @@
                                         font: {
                                             size: 14,
                                             family: "Josefin Sans",
-                                            // weight: "bold"
                                         },
                                         color: "#333"
                                     }
                                 },
                                 y: {
-
                                     beginAtZero: true
                                 }
                             }
