@@ -177,6 +177,7 @@ p{
     width: 100%;
     text-align: center;
     background-color: #fab9aeae;
+    padding: 10px;
 }
 
 
@@ -388,6 +389,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 50px;
     
 }
 
@@ -546,7 +548,7 @@ p{
 /* footer */
 footer{
     display: flex;
-    margin-top: 800px;
+    margin-top: 600px;
     background-color: #fab9ae;
     height: 20px;
     flex-direction: column;

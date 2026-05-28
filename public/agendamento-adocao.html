@@ -22,16 +22,19 @@
             <div class="coluna-principal">
                 <form class="formulario">
                     <h1 class="texto-cadastro">Agendar Visita</h1>
-                    <p class="p_cadastro_coluna1" >Preencha as informações abaixo para agendarmos uma visita e conhecer melhor o animal escolhido.  💛</p>
+                    <p class="p_cadastro_coluna1">Preencha as informações abaixo para agendarmos uma visita e conhecer
+                        melhor o animal escolhido. 💛</p>
                     <div class="caixa-inputs">
-                    <input type="text" class="input_cadastro" placeholder="Nome Completo:" id="i_nome_completo">
-                    <input type="text" class="input_cadastro" placeholder="Email:" id="i_email" onblur="limparMensagem()" onkeyup="ValidarEmail()" >
+                        <input type="text" class="input_cadastro" placeholder="Nome Completo:" id="i_nome_completo">
+                        <input type="text" class="input_cadastro" placeholder="Email:" id="i_email"
+                            onblur="limparMensagem()" onkeyup="ValidarEmail()">
                     </div>
                     <div class="caixa-inputs">
-                        <input type="tel" placeholder="Telefone: (11) 99999-9999" id="i_telefone" onblur="limparMensagem()" onkeyup="ValidarTelefone()">
+                        <input type="tel" maxlength="11" placeholder="Telefone: (11) 99999-9999" id="i_telefone"
+                            onblur="limparMensagem()" onkeyup="ValidarTelefone()">
                     </div>
                     <br>
-                    
+
                     <div id="div_mensagem"></div>
                     <button type="button" class="btn-coluna1" onclick="ConfirmarAgendamento()">Confirmar</button>
                 </form>
@@ -44,68 +47,93 @@
 
 </html>
 <script>
-        function ValidarEmail(){
-        let Email= i_email.value;
-        let Mensagem= ``;
+    function ValidarEmail() {
+        let Email = i_email.value;
+        let Mensagem = ``;
 
-        if (Email.includes('@')){
+        if (Email.includes('@')) {
             Mensagem += "✅ Possui @ <br>";
-        }else{
+        } else {
             Mensagem += "❌ Deve conter @ <br>";
         }
-        if(Email.includes('.com') || Email.includes('.com.br')){
-            Mensagem+= "✅ Domínio válido <br>";
-        }else{
-            Mensagem+= `❌ Deve terminar com ".com" ou ".com.br" <br>`;
+        if (Email.includes('.com') || Email.includes('.com.br')) {
+            Mensagem += "✅ Domínio válido <br>";
+        } else {
+            Mensagem += `❌ Deve terminar com ".com" ou ".com.br" <br>`;
         }
 
-        div_mensagem.innerHTML= Mensagem;
+        div_mensagem.innerHTML = Mensagem;
 
     }
 
-    function limparMensagem(){
-            div_mensagem.innerHTML = "";
-        }
+    function limparMensagem() {
+        let Telefone = i_telefone.value;
+        div_mensagem.innerHTML = "";
 
-    function ValidarTelefone(){
-        let Telefone=i_telefone.value;
+        let Ehnumerico= !isNaN(Telefone) 
+
+        if (Telefone.length == 11 && Ehnumerico) {
+            formatarTelefone();
+        } else {
+            ValidarTelefone();
+        }
+    }
+
+    function formatarTelefone() {
+        let tel = i_telefone.value; 
+        let ddd = `${tel[0]}${tel[1]}`;
+        let parte1 = `${tel[2]}${tel[3]}${tel[4]}${tel[5]}${tel[6]}`;
+        let parte2 = `${tel[7]}${tel[8]}${tel[9]}${tel[10]}`;
+        let formatado = `(${ddd}) ${parte1}-${parte2}`;
+
+        i_telefone.value = formatado;
+
+        console.log(tel);
+        console.log(ddd);
+    }
+
+    function ValidarTelefone() {
+        let Telefone = i_telefone.value;
         let Mensagem = "";
-        
-        if(Telefone.includes('-')){
-         Mensagem += "✅ Possui '-' (hífen) <br>";
-        }else{
-          Mensagem += "❌ '-' (hífen)  <br>";
+        let Ehnumerico= !isNaN(Telefone) 
+
+        if (Ehnumerico) {
+            Mensagem += "✅ Possui somente numeros <br>";
+        } else {
+            Mensagem += "❌ Deve conter somente números<br>";
         }
-        if(Telefone.length== 12) {
+
+
+        if (Telefone.length == 11) {
             Mensagem += "✅ 11 caracteres incluindo DDD e o número do Telefone <br>";
-        }else{
-             Mensagem += "❌ Deve conter o DDD e o número do telefone <br>"; 
+        } else {
+            Mensagem += "❌ Deve conter o DDD e o número do telefone <br>";
         }
 
-         div_mensagem.innerHTML= Mensagem;
+        div_mensagem.innerHTML = Mensagem;
 
     }
-    
+
     function ConfirmarAgendamento() {
-    let NomeCompleto = i_nome_completo.value;
-    let Email = i_email.value;
-    let Telefone = i_telefone.value;
-    let Mensagem = "";
+        let NomeCompleto = i_nome_completo.value;
+        let Email = i_email.value;
+        let Telefone = i_telefone.value;
+        let Mensagem = "";
 
-   if (NomeCompleto == '' || Email == '' || Telefone == '') {
-        Mensagem = '❌ Todos os campos devem ser preenchidos';
-    } 
-    else if (!Telefone.includes('-') || Telefone.length != 12) {
-        Mensagem = '❌ Telefone inválido';
-    } 
-    else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {
-        Mensagem = '❌ Email inválido';
-    } 
-    else {
-        alert("Verifique seu e-mail: enviamos uma mensagem para confirmar o dia da visita!");
-        window.location.href = "index.html";
-    }
-    div_mensagem.innerHTML= Mensagem;
-    
+        if (NomeCompleto == '' || Email == '' || Telefone == '') {
+            Mensagem = '❌ Todos os campos devem ser preenchidos';
+        }
+        else if (!Telefone.includes('-') || Telefone.length != 12) {
+            Mensagem = '❌ Telefone inválido';
+        }
+        else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {
+            Mensagem = '❌ Email inválido';
+        }
+        else {
+            alert("Verifique seu e-mail: enviamos uma mensagem para confirmar o dia da visita!");
+            window.location.href = "index.html";
+        }
+        div_mensagem.innerHTML = Mensagem;
+
     }
 </script>

@@ -78,7 +78,8 @@
                     <input type="text" class="input_cadastro" placeholder="Email:" id="i_email" onblur="limparMensagem()" onkeyup="ValidarEmail()" >
                     </div>
                     <div class="caixa-inputs">
-                        <input type="tel" placeholder="Telefone: (11) 99999-9999" id="i_telefone" onblur="limparMensagem()" onkeyup="ValidarTelefone()">
+                       <input type="tel" maxlength="11" placeholder="Telefone: (11) 99999-9999" id="i_telefone"
+                            onblur="limparMensagem()" onkeyup="ValidarTelefone()">
                                 <select id="select_TipoAjuda" class="select-formulario select-formulario-voluntario">
                                     <option value="" disabled selected>Como deseja ajudar?</option>
                                     <option value="divulgacao">Divulgação</option>
@@ -119,26 +120,52 @@
 
     }
 
-    function limparMensagem(){
-            div_mensagem.innerHTML = "";
-        }
+   
+    function limparMensagem() {
+        let Telefone = i_telefone.value;
+        div_mensagem.innerHTML = "";
 
-    function ValidarTelefone(){
-        let Telefone=i_telefone.value;
+        let Ehnumerico= !isNaN(Telefone) 
+
+        if (Telefone.length == 11 && Ehnumerico) {
+            formatarTelefone();
+        } else {
+            ValidarTelefone();
+        }
+    }
+
+    function formatarTelefone() {
+        let tel = i_telefone.value; 
+        let ddd = `${tel[0]}${tel[1]}`;
+        let parte1 = `${tel[2]}${tel[3]}${tel[4]}${tel[5]}${tel[6]}`;
+        let parte2 = `${tel[7]}${tel[8]}${tel[9]}${tel[10]}`;
+        let formatado = `(${ddd}) ${parte1}-${parte2}`;
+
+        i_telefone.value = formatado;
+
+        console.log(tel);
+        console.log(ddd);
+    }
+
+    function ValidarTelefone() {
+        let Telefone = i_telefone.value;
         let Mensagem = "";
-        
-        if(Telefone.includes('-')){
-         Mensagem += "✅ Possui '-' (hífen) <br>";
-        }else{
-          Mensagem += "❌ '-' (hífen)  <br>";
-        }
-        if(Telefone.length== 12) {
-            Mensagem += "✅ 11 caracteres incluindo DDD e o número do Telefone <br>";
-        }else{
-             Mensagem += "❌ Deve conter o DDD e o número do telefone <br>"; 
+        let Ehnumerico= !isNaN(Telefone) 
+
+        if (Ehnumerico) {
+            Mensagem += "✅ Possui somente numeros <br>";
+        } else {
+            Mensagem += "❌ Deve conter somente números<br>";
         }
 
-         div_mensagem.innerHTML= Mensagem;
+
+        if (Telefone.length == 11) {
+            Mensagem += "✅ 11 caracteres incluindo DDD e o número do Telefone <br>";
+        } else {
+            Mensagem += "❌ Deve conter o DDD e o número do telefone <br>";
+        }
+
+        div_mensagem.innerHTML = Mensagem;
 
     }
     
