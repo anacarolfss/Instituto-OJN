@@ -1,9 +1,7 @@
 var ambiente_processo = 'producao'
-// var ambiente_processo = 'desenvolvimento'
+// var ambiente_processo = 'desenvolvimento' POIS USAMOS VM ENT-> PRODUCAO 
 
 var caminho_env = ambiente_processo === 'producao' ? '.env' : '.env.dev';
-
-
 
 require("dotenv").config({path: caminho_env}); //evita q os dados sensiveis fique expostos no código 
 
@@ -16,7 +14,6 @@ var HOST_APP = process.env.APP_HOST;
 const app = express();
 
 const pesquisaRouter = require("./src/routes/pesquisa");
-
 const usuarioRouter = require("./src/routes/usuarios");
 
 app.use(express.json());
@@ -39,9 +36,6 @@ app.listen(PORTA_APP, function () {
     ##   ##  ######   #####             ####     ##  ##     ##     ##  ##              ##      ####    ######  
     \n\n\n                                                                                                 
     Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar .: http://${HOST_APP}:${PORTA_APP} :. \n\n
-    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n
-    \tSe .:desenvolvimento:. você está se conectando ao banco local. \n
-    \tSe .:producao:. você está se conectando ao banco remoto. \n\n
-    \t\tPara alterar o ambiente, comente ou descomente as linhas 1 ou 2 no arquivo 'app.js'\n\n`);
+    Você está rodando sua aplicação em ambiente de .:${process.env.AMBIENTE_PROCESSO}:. \n\n`);
 });
 

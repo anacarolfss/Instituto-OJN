@@ -174,7 +174,7 @@ function VerificarDados() {
 
     if (eliminatoria || pontuacao < 100) {
 
-        let irVoluntario = confirm("❌ Você não está apto para adoção. Deseja fazer login para ver voluntariado?");
+        let irVoluntario = confirm("❌ Você não está apto para adoção. Deseja fazer o cadastro ou o login para ver voluntariado?");
         if (irVoluntario) {
             div_loading.style.display = "block";
 
@@ -186,7 +186,7 @@ function VerificarDados() {
         }
     }
     else if (pontuacao >= 110) {
-        let irAdocao = confirm("🎉 Você está apto! Deseja fazer login para continuar?");
+        let irAdocao = confirm("🎉 Você está apto! Deseja fazer o cadastro ou o login para continuar?");
         div_loading.style.display = "block";
 
         sessionStorage.destino = "adocao";
