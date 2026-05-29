@@ -25,12 +25,12 @@
                     <p class="p_cadastro_coluna1">Preencha as informações abaixo para agendarmos uma visita e conhecer
                         melhor o animal escolhido. 💛</p>
                     <div class="caixa-inputs">
-                        <input type="text" class="input_cadastro" placeholder="Nome Completo:" id="i_nome_completo">
+                        <input type="text" class="input_cadastro" placeholder="Nome:" id="i_nome_completo">
                         <input type="text" class="input_cadastro" placeholder="Email:" id="i_email"
                             onblur="limparMensagem()" onkeyup="ValidarEmail()">
                     </div>
                     <div class="caixa-inputs">
-                        <input type="tel" maxlength="11" placeholder="Telefone: (11) 99999-9999" id="i_telefone"
+                        <input type="tel"placeholder="Telefone: (11) 99999-9999" id="i_telefone"
                             onblur="limparMensagem()" onkeyup="ValidarTelefone()">
                     </div>
                     <br>
@@ -88,8 +88,6 @@
 
         i_telefone.value = formatado;
 
-        console.log(tel);
-        console.log(ddd);
     }
 
     function ValidarTelefone() {
@@ -123,7 +121,7 @@
         if (NomeCompleto == '' || Email == '' || Telefone == '') {
             Mensagem = '❌ Todos os campos devem ser preenchidos';
         }
-        else if (!Telefone.includes('-') || Telefone.length != 12) {
+        else if (!Telefone.includes('-') || Telefone.length !== 15) {
             Mensagem = '❌ Telefone inválido';
         }
         else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {

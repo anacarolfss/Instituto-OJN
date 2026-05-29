@@ -74,11 +74,11 @@
                     <h1 class="texto-cadastro">Agendar Visita</h1>
                     <p class="p_cadastro_coluna1" >Preencha as informações abaixo para agendar uma visita, conhecer nossos animais e descobrir como ajudar o nosso instituto!  💛</p>
                     <div class="caixa-inputs">
-                    <input type="text" class="input_cadastro" placeholder="Nome Completo:" id="i_nome_completo">
+                    <input type="text" class="input_cadastro" placeholder="Nome:" id="i_nome_completo">
                     <input type="text" class="input_cadastro" placeholder="Email:" id="i_email" onblur="limparMensagem()" onkeyup="ValidarEmail()" >
                     </div>
                     <div class="caixa-inputs">
-                       <input type="tel" maxlength="11" placeholder="Telefone: (11) 99999-9999" id="i_telefone"
+                       <input type="tel" placeholder="Telefone: (11) 99999-9999" id="i_telefone"
                             onblur="limparMensagem()" onkeyup="ValidarTelefone()">
                                 <select id="select_TipoAjuda" class="select-formulario select-formulario-voluntario">
                                     <option value="" disabled selected>Como deseja ajudar?</option>
@@ -121,7 +121,7 @@
     }
 
    
-    function limparMensagem() {
+   function limparMensagem() {
         let Telefone = i_telefone.value;
         div_mensagem.innerHTML = "";
 
@@ -134,6 +134,7 @@
         }
     }
 
+
     function formatarTelefone() {
         let tel = i_telefone.value; 
         let ddd = `${tel[0]}${tel[1]}`;
@@ -143,8 +144,6 @@
 
         i_telefone.value = formatado;
 
-        console.log(tel);
-        console.log(ddd);
     }
 
     function ValidarTelefone() {
@@ -158,7 +157,6 @@
             Mensagem += "❌ Deve conter somente números<br>";
         }
 
-
         if (Telefone.length == 11) {
             Mensagem += "✅ 11 caracteres incluindo DDD e o número do Telefone <br>";
         } else {
@@ -169,27 +167,26 @@
 
     }
     
-    function ConfirmarAgendamento() {
-    let NomeCompleto = i_nome_completo.value;
-    let Email = i_email.value;
-    let Telefone = i_telefone.value;
-    let TipoAjuda= select_TipoAjuda.value;
-    let Mensagem = "";
+     function ConfirmarAgendamento() {
+        let NomeCompleto = i_nome_completo.value;
+        let Email = i_email.value;
+        let Telefone = i_telefone.value;
+        let Mensagem = "";
 
-   if (NomeCompleto == '' || Email == '' || Telefone == '' || TipoAjuda== '') {
-        Mensagem = '❌ Todos os campos devem ser preenchidos';
-    } 
-    else if (!Telefone.includes('-') || Telefone.length != 12) {
-        Mensagem = '❌ Telefone inválido';
-    } 
-    else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {
-        Mensagem = '❌ Email inválido';
-    } 
-    else {
-        alert("Verifique seu e-mail: enviamos uma mensagem para confirmar o dia da visita no nosso instituto!");
-        window.location.href = "index.html";
-    }
-    div_mensagem.innerHTML= Mensagem;
-    
+        if (NomeCompleto == '' || Email == '' || Telefone == '') {
+            Mensagem = '❌ Todos os campos devem ser preenchidos';
+        }
+        else if (!Telefone.includes('-') || Telefone.length !== 15) {
+            Mensagem = '❌ Telefone inválido';
+        }
+        else if (!Email.includes('@') || !(Email.includes('.com') || Email.includes('.com.br'))) {
+            Mensagem = '❌ Email inválido';
+        }
+        else {
+            alert("Verifique seu e-mail: enviamos uma mensagem para confirmar o dia da visita!");
+            window.location.href = "index.html";
+        }
+        div_mensagem.innerHTML = Mensagem;
+
     }
 </script>
